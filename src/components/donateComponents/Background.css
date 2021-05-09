@@ -1,0 +1,10 @@
+﻿.bg {
+    width: 100vw;
+    height: 100vh;
+    background: #373B44;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(#3967b1, #2f344b);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#3967b1, #2f344b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+}
