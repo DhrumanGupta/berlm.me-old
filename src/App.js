@@ -8,9 +8,9 @@ function App() {
         <div>
             <HashRouter>
                 <Switch>
-                    <Route exact path={"/"} component={Home} />
-                    <Route path={"/donate"} component={Donate}/>
-                    <Route path="*" render={() => <Redirect to={{pathname: "/"}} />} />
+                    <Route exact path={"/"} component={Home}/>
+                    <Route exact path={"/donate"} component={Donate}/>
+                    <Route path="*" render={() => <Redirect to={{pathname: "/"}}/>}/>
                 </Switch>
             </HashRouter>
         </div>

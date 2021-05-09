@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import WelcomeCard from "../components/homeComponents/WelcomeCard";
+import {Link} from "react-router-dom";
 
 function Home() {
     return (

@@ -23,11 +23,7 @@ function WelcomeCard(props) {
                         <FontAwesomeIcon icon={faGithub} color={"white"} size={"lg"}/>
                     </a>
                     &nbsp;
-                    <a href={"https://berlm.itch.io/"} target={"_blank"} className={"btn btn-outline-dark"}>
-                        <FontAwesomeIcon icon={faItchIo} color={"white"} size={"lg"}/>
-                    </a>
-                    &nbsp;
-                    <a href={"https://github.com/DaRealBerlm/"} target={"_blank"} className={"btn btn-outline-dark"}>
+                    <a href={"https://berlm.itch.io/"} target={"_blank"} className={"btn btn-outline-dark"} title={"Itch.io"}>
                         <FontAwesomeIcon icon={faItchIo} color={"white"} size={"lg"}/>
                     </a>
                 </animated.p>
