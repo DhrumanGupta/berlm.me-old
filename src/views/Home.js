@@ -9,7 +9,7 @@ function Home() {
                 W.I.P
             </h1>
             <p className={"text-center"}>
-                I'm learning react.js
+                React.js is cool
             </p>
         </div>
     );
