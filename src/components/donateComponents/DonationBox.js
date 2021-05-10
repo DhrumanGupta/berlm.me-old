@@ -12,13 +12,13 @@ function DonationBox() {
         config: config.slow
     });
 
-    const metadataUrl = 'http://extreme-ip-lookup.com/json/';
+    const metadataUrl = 'https://ipapi.co/json/';
     const [countryCode, setCountryCode] = useState(null)
 
     useEffect(() => {
         axios.get(metadataUrl)
             .then(metadata => {
-                setCountryCode(metadata.data.countryCode);
+                setCountryCode(metadata.data.country);
             })
             .catch();
     }, [metadataUrl]);
@@ -43,22 +43,13 @@ function DonationBox() {
 }
 
 const insertTokenEveryN = (arr, token, n, fromEnd) => {
-
-    // Clone the received array, so we don't mutate the
-    // original one. You can ignore this if you don't mind.
-
     let a = arr.slice(0);
-
-    // Insert the <token> every <n> elements.
-
     let idx = fromEnd ? a.length - n : n;
-
     while ((fromEnd ? idx >= 1 : idx <= a.length))
     {
         a.splice(idx, 0, token);
         idx = (fromEnd  ? idx - n : idx + n + 1);
     }
-
     return a;
 };
 
