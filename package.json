@@ -23,7 +23,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/DaRealBerlm/darealberlm.github.io.git",
+    "deploy": "gh-pages -d build -r https://github.com/DaRealBerlm/dhrumanberlm.github.io.git",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
