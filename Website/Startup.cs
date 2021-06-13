@@ -1,10 +1,16 @@
+using System.Security;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Website.Data;
+using Website.Models;
 
 namespace Website
 {
@@ -20,17 +26,52 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(Configuration);
+
             services.AddControllers().AddNewtonsoftJson();
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
 
-            services.AddStackExchangeRedisCache(options =>
-            {
-                options.Configuration = Configuration.GetConnectionString("Redis");
-                options.InstanceName = "berlm.me_";
-            });
+            // var connectionString = Configuration.GetConnectionString("MySql");
+            services.AddDbContext<UserDbContext>(
+                builder => builder
+                    .UseSqlite(Configuration.GetConnectionString("cache"))
+            );
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>(config =>
+                {
+                    config.Password.RequireDigit = true;
+                    config.Password.RequiredLength = 6;
+                    config.Password.RequireLowercase = true;
+                    config.Password.RequireUppercase = true;
+                    config.User.RequireUniqueEmail = true;
+                })
+                .AddEntityFrameworkStores<UserDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddIdentityServer()
+                .AddApiAuthorization<ApplicationUser, UserDbContext>();
+
+            services.AddAuthentication()
+                .AddIdentityServerJwt();
+
+
+            services.AddDbContext<BlogDbContext>(
+                builder => builder
+                    .UseSqlite(Configuration.GetConnectionString("cache"))
+            );
+
+            // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            // .EnableDetailedErrors()
+            // .EnableSensitiveDataLogging()
+
+            // services.AddStackExchangeRedisCache(options =>
+            // {
+            //     options.Configuration = Configuration.GetConnectionString("Redis");
+            //     options.InstanceName = "berlm.me_";
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +93,9 @@ namespace Website
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

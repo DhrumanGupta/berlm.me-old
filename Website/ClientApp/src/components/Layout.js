@@ -4,9 +4,9 @@ import HeaderNavbar from "./HeaderNavbar";
 class Layout extends Component {
 	render() {
 		return (
-			<div>
+			<div className={"container-fluid h-100 bg-dark"}>
 				<HeaderNavbar/>
-				<div className={"container"}>
+				<div className={"container text-light"}>
 					{this.props.children}
 				</div>
 			</div>

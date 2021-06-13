@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
@@ -10,6 +11,7 @@ using Website.Extensions;
 
 namespace Website.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -40,7 +42,7 @@ namespace Website.Controllers
             // if (forecasts != null)
             //     return forecasts;
             //
-            await Task.Delay(500);
+            // await Task.Delay(500);
             
             var forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
                 {
