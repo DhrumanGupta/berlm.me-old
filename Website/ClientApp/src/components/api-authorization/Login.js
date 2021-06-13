@@ -19,6 +19,7 @@ export class Login extends Component {
 
 	componentDidMount() {
 		const action = this.props.action;
+		
 		switch (action) {
 			case LoginActions.Login:
 				this.login(this.getReturnUrl());

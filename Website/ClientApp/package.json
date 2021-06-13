@@ -16,7 +16,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
     "react-syntax-highlighter": "^15.4.3",
-    "react-typist": "^2.0.5"
+    "react-typist": "^2.0.5",
+    "rimraf": "^2.6.2"
   },
   "devDependencies": {
     "ajv": "^6.9.1",

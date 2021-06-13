@@ -9,8 +9,8 @@ using Website.Data;
 namespace Website.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20210613084519_1.0")]
-    partial class _10
+    [Migration("20210613105358_0.0.0")]
+    partial class _000
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -196,9 +196,11 @@ namespace Website.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderKey")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderDisplayName")
@@ -236,9 +238,11 @@ namespace Website.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
