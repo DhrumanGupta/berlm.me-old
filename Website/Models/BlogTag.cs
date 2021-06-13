@@ -2,7 +2,7 @@
 
 namespace Website.Models
 {
-    public class Tag
+    public class BlogTag
     {
         public string Name { get; set; }
         public List<BlogPost> Posts { get; set; } 

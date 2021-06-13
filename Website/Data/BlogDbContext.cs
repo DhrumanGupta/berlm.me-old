@@ -11,6 +11,6 @@ namespace Website.Data
         }
 
         public DbSet<BlogPost> Posts { get; set; }
-        public DbSet<Tag> Tags { get; set; }
+        public DbSet<BlogTag> Tags { get; set; }
     }
 }
