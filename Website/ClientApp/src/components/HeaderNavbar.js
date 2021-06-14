@@ -1,6 +1,5 @@
 ﻿import React, {Component} from 'react';
 import {Link, NavLink} from "react-router-dom";
-import {LoginMenu} from "./api-authorization/LoginMenu";
 
 class HeaderNavbar extends Component {
 	render() {
@@ -14,7 +13,7 @@ class HeaderNavbar extends Component {
 						<span className="navbar-toggler-icon"/>
 					</button>
 
-					<div className="collapse navbar-collapse flex-sm-row-reverse" id="navbarContent">
+					<div className="collapse navbar-collapse" id="navbarContent">
 						<ul className="navbar-nav">
 
 							<li className="nav-item">
@@ -22,9 +21,8 @@ class HeaderNavbar extends Component {
 							</li>
 
 							<li className="nav-item">
-								<NavLink className="nav-link" to={'/blog'}>Blog</NavLink>
+								<NavLink className="nav-link" to={'/blog/test'}>Blog</NavLink>
 							</li>
-							<LoginMenu/>
 						</ul>
 					</div>
 				</div>
