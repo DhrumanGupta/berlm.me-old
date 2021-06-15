@@ -10,7 +10,6 @@ namespace Website.Data
         {
         }
 
-        public DbSet<BlogPost> Posts { get; set; }
-        public DbSet<BlogTag> Tags { get; set; }
+        public DbSet<Blog> Posts { get; set; }
     }
 }

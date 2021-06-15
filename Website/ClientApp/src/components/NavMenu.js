@@ -1,10 +1,10 @@
 ﻿import React, {Component} from 'react';
 import {Link, NavLink} from "react-router-dom";
 
-class HeaderNavbar extends Component {
+class NavMenu extends Component {
 	render() {
 		return (
-			<nav className={"navbar navbar-expand-md navbar-dark mb-4 shadow-sm"}>
+			<nav className={"navbar navbar-expand-sm navbar-dark mb-4 shadow-sm"}>
 				<div className={"container-fluid"}>
 					<Link to="/" className={"navbar-brand mb-0 h1"}>berlm.me</Link>
 
@@ -21,7 +21,7 @@ class HeaderNavbar extends Component {
 							</li>
 
 							<li className="nav-item">
-								<NavLink className="nav-link" to={'/blog/test'}>Blog</NavLink>
+								<NavLink className="nav-link" to={'/blog'}>Blog</NavLink>
 							</li>
 						</ul>
 					</div>
@@ -31,4 +31,4 @@ class HeaderNavbar extends Component {
 	}
 }
 
-export default HeaderNavbar;
+export default NavMenu;
