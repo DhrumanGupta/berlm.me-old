@@ -1,20 +1,22 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router';
+import {Route, Switch} from 'react-router';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import BlogList from "./components/blog/BlogList";
-import {Redirect} from 'react-router-dom';
+import Error404 from "./components/Error404";
 
 export default class App extends Component {
 	static displayName = App.name;
 
 	render() {
 		return (
-				<Layout>
+			<Layout>
+				<Switch>
 					<Route exact path='/' component={Home}/>
-					<Route exact path='/blog' component={BlogList}/>
-					<Route render={() => <Redirect to={{pathname: "/"}}/>}/>
-				</Layout>
+					<Route exact path='/blog/t' component={BlogList}/>
+					<Route component={Error404}/>
+				</Switch>
+			</Layout>
 		);
 	}
 }
