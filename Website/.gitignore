@@ -231,10 +231,6 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-<<<<<<< HEAD
 # App settings
-=======
-# Appsettings
->>>>>>> 986df2f6498d991887fe603410a039a1e1df4ee0
-./appsettings.json
-./appsettings.Development.json
+appsettings.json
+appsettings.Development.json
