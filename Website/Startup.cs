@@ -21,6 +21,8 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
+            
             var connectionString = Configuration.GetConnectionString("MySql");
 
             services.AddDbContext<BlogDbContext>(
@@ -30,11 +32,11 @@ namespace Website
                     .EnableSensitiveDataLogging()
             );
             
-            // services.AddStackExchangeRedisCache(options =>
-            // {
-            //     options.Configuration = Configuration.GetConnectionString("Redis");
-            //     options.InstanceName = "berlm.me_";
-            // });
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = Configuration.GetConnectionString("Redis");
+                options.InstanceName = "berlm.me_";
+            });
 
             services.AddSingleton(Configuration);
 
