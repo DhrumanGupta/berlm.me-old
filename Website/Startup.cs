@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
@@ -21,6 +22,11 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(
+                    CertificateAuthenticationDefaults.AuthenticationScheme)
+                .AddCertificate()
+                .AddCertificateCache();
+            
             services.AddRazorPages();
             
             var connectionString = Configuration.GetConnectionString("MySql");
@@ -71,7 +77,7 @@ namespace Website
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    pattern: "api/{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
 

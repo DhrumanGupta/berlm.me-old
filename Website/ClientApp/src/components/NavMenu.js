@@ -17,7 +17,7 @@ class NavMenu extends Component {
 						<ul className="navbar-nav">
 
 							<li className="nav-item">
-								<NavLink className="nav-link" to={'/aboutMe'}>About Me</NavLink>
+								<NavLink className="nav-link" to={'/about'}>About</NavLink>
 							</li>
 
 							<li className="nav-item">

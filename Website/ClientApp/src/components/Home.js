@@ -5,15 +5,11 @@ import {MediaData} from "../data/MediaHandles";
 
 export default function Home() {
 	return (
-		<div className={"d-flex justify-content-center align-items-center flex-column h-100"}>
-			<div className={"display-1 flex-grow-1 d-flex align-items-center"}>
+		<div className={"d-flex justify-content-center align-items-center flex-column flex-grow-1"}>
+			<div className={"display-1 flex-grow-1 d-flex align-items-center text-center"}>
 				<Typing startDelay={500} cursor={{
 					hideWhenDone: true
 				}}>
-					Hey there!
-
-					<Typing.Backspace count={10} delay={750}/>
-					<Typing.Delay ms={500}/>
 
 					I am Berlm.
 
@@ -33,18 +29,18 @@ export default function Home() {
 					a tech enthusiast.
 
 					<Typing.Backspace count={27} delay={700}/>
-					<Typing.Delay ms={1000}/>
 
 					Welcome
 				</Typing>
 			</div>
-			<div style={{width: "100px"}} className={"d-flex flex-row align-items-center justify-content-center pb-4"}>
+			<div style={{width: "100px"}} className={"d-flex flex-row align-items-center justify-content-center"}>
 				{
 					MediaData.map((obj) =>
 						<MediaIcon data={obj} key={obj.class}/>
 					)
 				}
 			</div>
+			<hr style={{width: "200px", height: "2px"}} className={"mb-3"} />
 		</div>
 	);
 }

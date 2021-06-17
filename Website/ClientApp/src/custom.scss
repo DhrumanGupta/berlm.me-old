@@ -1,31 +1,30 @@
-﻿// Defaults
-/* Provide sufficient contrast against white background */
-code {
-  color: #E01A76;
-}
-
-::-webkit-scrollbar {
+﻿::-webkit-scrollbar {
   width: 5px;
 }
 
 ::-webkit-scrollbar:hover {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #232324;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fd2667;
+  background: #080808;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f5f5f5;
+  background: #49484a;
 }
 
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(14, 14, 14) linear-gradient(45deg, rgba(14, 14, 14, 1) 0%, rgba(34, 34, 34, 1) 100%) !important;
 }
 
 .nav-link a {
@@ -38,7 +37,7 @@ html {
   margin-right: 1.5em !important;
 }
 
-.bg-dark {
+.bg-dark-gradient {
   background: rgb(14, 14, 14) !important;
   background: linear-gradient(45deg, rgba(14, 14, 14, 1) 0%, rgba(34, 34, 34, 1) 100%) !important;
 }
@@ -62,8 +61,66 @@ html {
   padding: .75rem !important;
 }
 
+.rounded-1 {
+  border-radius: .4rem !important;
+}
+
+.rounded, .rounded-2 {
+  border-radius: .6rem !important;
+}
+
+.rounded-3 {
+  border-radius: .8rem !important;
+}
+
+.lead {
+  font-size: 1.1rem !important;
+}
+
+@media screen and (min-width: 992px) {
+  .lead {
+    font-size: 1.3rem !important;
+  }
+}
+
+.min-vh-100 {
+  min-height: 100vh !important;
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+}
+
 // Bootstrap
 @import "~bootstrap/dist/css/bootstrap.min.css";
+// scss
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$generatedStep: 5;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @for $i from 1 to (100/$generatedStep) +1 {
+      $size: $i * $generatedStep;
+
+      @each $prop, $unit in (width: vw, height: vh) {
+        .#{$unit}#{$infix}-#{$size} {
+          #{$prop}: #{$size}#{$unit} !important;
+          @if $unit == vh {
+            #{$prop}: calc(var(--#{$unit}, 1#{$unit}) * #{$size}) !important;
+          }
+        }
+      }
+
+      @each $prop, $unit in (width: width, height: height) {
+        .#{str-slice($unit, 1, 1)}#{$infix}-#{$size} {
+          #{$prop}: #{$size}% !important;
+        }
+      }
+    }
+  }
+}
+
 
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/css/fontawesome.min.css';
