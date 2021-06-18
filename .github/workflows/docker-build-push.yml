@@ -5,9 +5,8 @@ on:
     branches: [ production ]
 
 jobs:
-
   build:
-
+  name: Build and Deploy Application
     runs-on: ubuntu-latest
 
     steps:
@@ -17,3 +16,15 @@ jobs:
         echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
         docker build . --file Dockerfile --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
         docker push docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
+        
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: | 
+          docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q); docker image prune -a -f --filter "until=24h"\
+          ; docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest\
+          && docker run --rm -it -p 80:80 -p 443:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=443 -e ${{ secrets.ASPNETCORE_CERTIFICATE_PASSWORD_CLI }} -e ${{ secrets.ASPNETCORE_CERTIFICATE_DEFAULT_PATH_CLI }} -v ${{ secrets.VPS_CERTIFICATE_PATH }} ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}
+        
