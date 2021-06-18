@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: rgb(14, 14, 14) linear-gradient(45deg, rgba(14, 14, 14, 1) 0%, rgba(34, 34, 34, 1) 100%) !important;
+  background: rgb(14, 14, 14) linear-gradient(45deg, rgba(14, 14, 14, 1) 0%, rgba(28, 28, 28, 1) 100%) !important;
 }
 
 .nav-link a {
@@ -38,7 +38,7 @@ body {
 }
 
 .bg-dark-gradient {
-  background: rgb(14, 14, 14) !important;
+  background: rgb(28, 28, 28) !important;
   background: linear-gradient(45deg, rgba(14, 14, 14, 1) 0%, rgba(34, 34, 34, 1) 100%) !important;
 }
 
@@ -81,11 +81,6 @@ body {
   .lead {
     font-size: 1.3rem !important;
   }
-}
-
-.min-vh-100 {
-  min-height: 100vh !important;
-  min-height: calc(var(--vh, 1vh) * 100) !important;
 }
 
 // Bootstrap

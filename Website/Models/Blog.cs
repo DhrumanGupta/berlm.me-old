@@ -16,7 +16,7 @@ namespace Website.Models
         [Required]
         public string Content { get; set; }
 
-        public List<string> Tags { get; set; }
+        public IList<BlogTag> Tags { get; set; }
 
         [Required]
         public DateTime CreatedAt { get; set; }

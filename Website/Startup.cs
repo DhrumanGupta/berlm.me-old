@@ -22,22 +22,24 @@ namespace Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(Configuration);
+            
             services.AddAuthentication(
                     CertificateAuthenticationDefaults.AuthenticationScheme)
                 .AddCertificate()
                 .AddCertificateCache();
-            
+
             services.AddRazorPages();
-            
+
             var connectionString = Configuration.GetConnectionString("MySql");
 
             services.AddDbContext<BlogDbContext>(
                 builder => builder
                     .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-                    .EnableDetailedErrors()
-                    .EnableSensitiveDataLogging()
+                    // .EnableDetailedErrors()
+                    // .EnableSensitiveDataLogging()
             );
-            
+
             services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = Configuration.GetConnectionString("Redis");
@@ -73,11 +75,11 @@ namespace Website
 
             app.UseRouting();
 
+            // app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "api/{controller}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
 

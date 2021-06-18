@@ -1,36 +1,59 @@
-﻿import React from 'react';
+﻿import React, {useEffect, useState} from 'react';
 import Markdown from "markdown-to-jsx"
 import {PrismLight as SyntaxHighlighter} from "react-syntax-highlighter";
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import {darcula} from "react-syntax-highlighter/src/styles/prism";
-import {useLocation} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
+import axios from "axios";
+import Loader from "../Loader";
+import Error404 from "../Error404";
 
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 
-const Blog = (props) => {
-	const blogName = useLocation().pathname.split('/').slice(-1);
-	
-	return (
-		<Markdown
-			options={{
-				overrides: {
-					h1: {
-						props: {
-							className: "text-center"
-						}
-					},
-					SyntaxHighlighter: {
-						component: SyntaxHighlighter,
-						props: {
-							style: darcula,
-							showLineNumbers: true
-						}
-					}
+const Blog = () => {
+	const {name} = useParams();
+	const [blogData, setBlogData] = useState({
+		loading: false,
+		data: null,
+		error: false
+	});
+
+	useEffect(() => {
+		setBlogData({
+			loading: true,
+			data: null,
+			error: false
+		})
+
+		axios
+			.get(`api/blog/${name}`)
+			.then(r => {
+				setBlogData({
+					loading: false,
+					data: r.data,
+					error: false
+				})
+			})
+			.catch(err => {
+					setBlogData({
+						loading: false,
+						data: null,
+						error: true
+					})
 				}
-			}}
-		>
-			{props.text}
-		</Markdown>
+			)
+	}, [name]);
+
+	if (blogData.loading) {
+		return <Loader/>
+	}
+	
+	if (blogData.error) {
+		return <Error404/>
+	}
+
+	return (
+		<div>{JSON.stringify(blogData.data)}</div>
 	);
 }
 

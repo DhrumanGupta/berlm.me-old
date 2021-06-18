@@ -11,9 +11,8 @@ using Website.Extensions;
 
 namespace Website.Controllers
 {
-    [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -42,7 +41,7 @@ namespace Website.Controllers
             // if (forecasts != null)
             //     return forecasts;
             //
-            // await Task.Delay(500);
+            await Task.Delay(0);
             
             var forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
                 {
