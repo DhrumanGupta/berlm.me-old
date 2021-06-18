@@ -23,7 +23,7 @@ namespace Website
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(Configuration);
-            
+
             services.AddAuthentication(
                     CertificateAuthenticationDefaults.AuthenticationScheme)
                 .AddCertificate()
@@ -36,8 +36,10 @@ namespace Website
             services.AddDbContext<BlogDbContext>(
                 builder => builder
                     .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-                    // .EnableDetailedErrors()
-                    // .EnableSensitiveDataLogging()
+#if DEBUG
+                    .EnableDetailedErrors()
+                    .EnableSensitiveDataLogging()
+#endif
             );
 
             services.AddStackExchangeRedisCache(options =>

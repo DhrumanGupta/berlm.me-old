@@ -9,7 +9,7 @@ using Website.Data;
 namespace Website.Migrations
 {
     [DbContext(typeof(BlogDbContext))]
-    [Migration("20210617185118_0.0.0")]
+    [Migration("20210618113925_0.0.0")]
     partial class _000
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
