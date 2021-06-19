@@ -11,6 +11,6 @@ In a way, this is a thing to cross off from my bucket list.
 - **Frontend**: React.js. Static build files are passed from here to the backend's file provider.
 - **Relational Database**: MySQL
 - **In-Memory Database**: Redis
+- **DevOps**: GitHub Actions
 
----
 Hosted on linode using docker. Visit the website [here](https://berlm.me/)
