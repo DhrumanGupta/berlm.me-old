@@ -28,6 +28,5 @@ jobs:
           ; docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest \
           && docker run --rm -d -p 80:80 -p 443:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=443 \
           -e ${{ secrets.ASPNETCORE_CERTIFICATE_PASSWORD_CLI }} -e ${{ secrets.ASPNETCORE_CERTIFICATE_DEFAULT_PATH_CLI }} \
-          -e "ConnectionStrings__MySql=server=${{ secrets.MYSQL_SERVER }};uid=${{ secrets.MYSQL_USERNAME }};password=${{ secrets.MYSQL_PASSWORD }};database=${{ secrets.MYSQL_DATABASE_NAME }}" \
           -v ${{ secrets.VPS_CERTIFICATE_PATH }} ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
         
