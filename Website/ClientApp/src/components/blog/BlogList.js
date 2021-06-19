@@ -2,9 +2,13 @@
 
 function BlogList() {
 	return (
-		<div className={"d-flex justify-content-center align-items-center flex-column h-100"}>
-			<div className={"flex-grow-1 d-flex align-items-center"}>
-			</div>
+		<div className={"d-flex justify-content-center align-items-center flex-column flex-grow-1"}>
+			<p className={"text-center display-1"}>
+				WIP
+			</p>
+			<p className={"text-center text-muted"}>
+				Please try again soon (Almost here!)
+			</p>
 		</div>
 	);
 }

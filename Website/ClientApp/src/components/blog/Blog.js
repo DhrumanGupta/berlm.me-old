@@ -53,7 +53,11 @@ const Blog = () => {
 	}
 
 	return (
-		<div>{JSON.stringify(blogData.data)}</div>
+		<div>
+			<p className={"text-center display-1"}>
+				A blog was found here, but the display is in development
+			</p>
+		</div>
 	);
 }
 
