@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,7 +48,17 @@ namespace Website
                 options.Configuration = Configuration.GetConnectionString("Redis");
                 options.InstanceName = "berlm.me_";
             });
+            
+            // Rate limiting config
+            services.AddOptions();
+            services.AddMemoryCache();
+            
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
 
+            services.AddInMemoryRateLimiting();
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            
             services.AddSingleton(Configuration);
 
             services.AddControllers().AddNewtonsoftJson();
@@ -77,8 +88,8 @@ namespace Website
 
             app.UseRouting();
 
-            // app.UseAuthorization();
-
+            app.UseIpRateLimiting();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();

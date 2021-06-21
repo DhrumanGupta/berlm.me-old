@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: rgb(14, 14, 14) linear-gradient(45deg, rgba(14, 14, 14, 1) 0%, rgba(28, 28, 28, 1) 100%) !important;
+  background: rgb(27, 27, 27) linear-gradient(40deg, rgba(27, 27, 27, 1) 0%, rgba(37, 37, 37, 1) 100%);
 }
 
 .nav-link a {
@@ -38,9 +38,10 @@ body {
 }
 
 .bg-dark-gradient {
-  background: rgb(28, 28, 28) !important;
-  background: linear-gradient(45deg, rgba(14, 14, 14, 1) 0%, rgba(34, 34, 34, 1) 100%) !important;
+  background: rgb(27, 27, 27);
+  background: linear-gradient(40deg, rgba(27, 27, 27, 1) 0%, rgba(37, 37, 37, 1) 100%);
 }
+
 
 .nav-link {
   padding-top: 0.8rem !important;

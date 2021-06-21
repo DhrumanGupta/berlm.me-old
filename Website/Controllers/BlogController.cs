@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Website.Attributes;
 using Website.Data;
 using Website.Models;
 
@@ -21,7 +19,6 @@ namespace Website.Controllers
             _context = context;
         }
 
-        // GET: api/Blog/5
         [HttpGet("{name}")]
         public async Task<ActionResult<Blog>> GetBlog(string name)
         {
@@ -35,8 +32,7 @@ namespace Website.Controllers
             return blog;
         }
 
-        // PUT: api/Blog/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [AuthorizeFromKey]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBlog(string id, Blog blog)
         {
@@ -66,9 +62,8 @@ namespace Website.Controllers
             return NoContent();
         }
 
-        // POST: api/Blog
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [AuthorizeFromKey]
         public async Task<ActionResult<Blog>> PostBlog(Blog blog)
         {
             _context.Posts.Add(blog);
@@ -87,8 +82,8 @@ namespace Website.Controllers
             return CreatedAtAction("GetBlog", new { id = blog.Title }, blog);
         }
 
-        // DELETE: api/Blog/5
         [HttpDelete("{id}")]
+        [AuthorizeFromKey]
         public async Task<IActionResult> DeleteBlog(string id)
         {
             var blog = await _context.Posts.FindAsync(id);
