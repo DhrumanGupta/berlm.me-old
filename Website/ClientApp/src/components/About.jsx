@@ -38,7 +38,7 @@ function About() {
 					{defaultContent}
 					{readMore && extraContent}
 
-					<a className={"text-warning btn"} onClick={() => {
+					<a className={"text-danger btn"} onClick={() => {
 						setReadMore(!readMore)
 					}}>
 						<ins>{linkName}</ins>

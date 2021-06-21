@@ -29,9 +29,9 @@ export default function App() {
 			<Switch>
 				<Route exact path='/' component={Home}/>
 				<Route exact path={'/about'} component={About}/>
-				<Route exact path='/resources/blog/:name' component={Blog}/>
+				<Route exact path='/resources/blog/:title' component={Blog}/>
 				<Route exact path='/resources/blog' component={BlogsByDate}/>
-				<Route exact path='/resources/category/:name' component={BlogsByTag}/>
+				<Route exact path='/resources/category/:title' component={BlogsByTag}/>
 				<Route component={Error404}/>
 			</Switch>
 		</Layout>

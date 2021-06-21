@@ -1,38 +1,38 @@
 ﻿import React, {useState} from "react";
 import {PrismLight as SyntaxHighlighter} from "react-syntax-highlighter";
 
-import {atomDark, prism} from "react-syntax-highlighter/dist/cjs/styles/prism";
+import darcula from "react-syntax-highlighter/dist/cjs/styles/prism/darcula";
 import jsx from "react-syntax-highlighter/dist/cjs/languages/prism/jsx";
-import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
-import sass from "react-syntax-highlighter/dist/cjs/languages/prism/sass";
+import csharp from "react-syntax-highlighter/src/languages/prism/csharp";
 
 SyntaxHighlighter.registerLanguage("jsx", jsx);
-SyntaxHighlighter.registerLanguage("bash", bash);
-SyntaxHighlighter.registerLanguage("sass", sass);
+SyntaxHighlighter.registerLanguage("csharp", csharp);
 
 const codeHighlightCache = new Map();
 
-const retrieveCodeFromHighlightCache = (language, isDark, content) => {
-	const cachedItem = codeHighlightCache.get(content + isDark);
+const retrieveCodeFromHighlightCache = (language, content) => {
+	const cachedItem = codeHighlightCache.get(content);
 	if (cachedItem === undefined) {
+		console.log("PEPEPE POPOP FUCK")
 		const highlighterProps = {
 			language,
 			children: content,
-			style: isDark ? atomDark : prism,
+			style: darcula,
+			wrapLongLines: true
 		};
 		SyntaxHighlighter(highlighterProps);
 		const cachedVar = SyntaxHighlighter(highlighterProps);
-		codeHighlightCache.set(content + isDark, cachedVar);
+		codeHighlightCache.set(content, cachedVar);
 		return cachedVar;
 	}
 
 	return cachedItem;
 };
 
-const Code = ({children, language, isDark}) => {
+const Code = ({children, language}) => {
 	return (
 		<div>
-			{retrieveCodeFromHighlightCache(language, isDark, children)}
+			{retrieveCodeFromHighlightCache(language, children)}
 		</div>
 	);
 };

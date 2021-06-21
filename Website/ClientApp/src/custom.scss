@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: rgb(27, 27, 27) linear-gradient(40deg, rgba(27, 27, 27, 1) 0%, rgba(37, 37, 37, 1) 100%);
+  background: rgb(30, 30, 30) linear-gradient(40deg, rgba(27, 27, 27, 1) 0%, rgba(37, 37, 37, 1) 100%);
 }
 
 .nav-link a {
@@ -38,8 +38,8 @@ body {
 }
 
 .bg-dark-gradient {
-  background: rgb(27, 27, 27);
-  background: linear-gradient(40deg, rgba(27, 27, 27, 1) 0%, rgba(37, 37, 37, 1) 100%);
+  background: rgb(30, 30, 30);
+  background: linear-gradient(40deg, rgba(33, 33, 33, 1) 0%, rgba(40, 40, 40, 1) 100%);
 }
 
 
@@ -84,12 +84,36 @@ body {
   }
 }
 
+hr {
+  overflow: visible;
+  text-align: center;
+  border: none;
+  background: linear-gradient(to left, currentColor calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), currentColor calc(50% + 16px))
+}
+
+hr::after, hr::before {
+  content: '';
+  display: inline-block;
+  height: 1.3rem;
+  position: relative;
+  top: calc(50% - 0.8rem);
+  transform: rotate(22.5deg);
+  width: 0.1rem;
+  margin-left: .3rem;
+  margin-right: .3rem;
+  background-color: white;
+}
+
 // Bootstrap
 @import "~bootstrap/dist/css/bootstrap.min.css";
 // scss
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
+
+code {
+  color: $danger;
+}
 
 $generatedStep: 5;
 
@@ -116,7 +140,6 @@ $generatedStep: 5;
     }
   }
 }
-
 
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/css/fontawesome.min.css';

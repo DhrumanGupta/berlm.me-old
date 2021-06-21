@@ -38,7 +38,7 @@ class Home extends React.PureComponent {
 					{
 						MediaData.map((obj) => (
 								<Suspense fallback={" W "}>
-									<MediaIcon data={obj} key={obj.class}/>
+									<MediaIcon data={obj} key={obj.class + obj.url}/>
 								</Suspense>
 							)
 						)
