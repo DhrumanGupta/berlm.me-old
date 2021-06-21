@@ -13,4 +13,8 @@ In a way, this is a thing to cross off from my bucket list.
 - **In-Memory Database**: Redis
 - **DevOps**: GitHub Actions
 
+## Development Roadmap/Todo List
+I have a public trello list on which I keep adding TODO things (as they come in my mind). The status of the features can be seen there as well.  
+[Visit Trello](https://trello.com/b/tiAUMBKK/)
+
 Hosted on linode using docker. Visit the website [here](https://berlm.me/)
