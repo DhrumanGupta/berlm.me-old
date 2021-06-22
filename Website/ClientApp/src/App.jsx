@@ -6,7 +6,6 @@ import {Route, Switch} from 'react-router';
 import About from "./components/About";
 import Blog from "./components/blog/Blog";
 import BlogsByDate from "./components/blog/BlogsByDate";
-import BlogsByTag from "./components/blog/BlogsByTag";
 
 function handleResize() {
 	const root = document.documentElement;
@@ -29,9 +28,8 @@ export default function App() {
 			<Switch>
 				<Route exact path='/' component={Home}/>
 				<Route exact path={'/about'} component={About}/>
-				<Route exact path='/resources/blog/:title' component={Blog}/>
-				<Route exact path='/resources/blog' component={BlogsByDate}/>
-				<Route exact path='/resources/category/:title' component={BlogsByTag}/>
+				<Route exact path='/blog' component={BlogsByDate}/>
+				<Route exact path='/blog/:title' component={Blog}/>
 				<Route component={Error404}/>
 			</Switch>
 		</Layout>

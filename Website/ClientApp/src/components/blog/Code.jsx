@@ -1,6 +1,5 @@
-﻿import React, {useState} from "react";
-import {PrismLight as SyntaxHighlighter} from "react-syntax-highlighter";
-
+﻿import React from "react";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism-light";
 import darcula from "react-syntax-highlighter/dist/cjs/styles/prism/darcula";
 import jsx from "react-syntax-highlighter/dist/cjs/languages/prism/jsx";
 import csharp from "react-syntax-highlighter/src/languages/prism/csharp";
@@ -13,7 +12,6 @@ const codeHighlightCache = new Map();
 const retrieveCodeFromHighlightCache = (language, content) => {
 	const cachedItem = codeHighlightCache.get(content);
 	if (cachedItem === undefined) {
-		console.log("PEPEPE POPOP FUCK")
 		const highlighterProps = {
 			language,
 			children: content,

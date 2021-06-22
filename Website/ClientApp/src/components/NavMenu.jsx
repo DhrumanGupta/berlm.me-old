@@ -4,7 +4,7 @@ import {NavLink, Link} from "react-router-dom";
 class NavMenu extends Component {
 	render() {
 		return (
-			<nav className={"navbar navbar-expand-sm navbar-dark mb-4 shadow-sm"}>
+			<header className={"navbar navbar-expand-sm navbar-dark mb-4 shadow-sm"}>
 				<div className={"container-fluid"}>
 					<Link to="/" className={"navbar-brand mb-0 h1"}>berlm.me</Link>
 
@@ -21,12 +21,12 @@ class NavMenu extends Component {
 							</li>
 
 							<li className="nav-item">
-								<NavLink className="nav-link" to={'/resources/blog'}>Blog</NavLink>
+								<NavLink className="nav-link" to={'/blog'}>Blog</NavLink>
 							</li>
 						</ul>
 					</div>
 				</div>
-			</nav>
+			</header>
 		);
 	}
 }

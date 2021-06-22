@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SQLitePCL;
 using Website.Attributes;
 using Website.Data;
 using Website.Models;
@@ -18,11 +21,38 @@ namespace Website.Controllers
         {
             _context = context;
         }
-
-        [HttpGet("{name}")]
-        public async Task<ActionResult<Blog>> GetBlog(string name)
+        
+        [HttpGet]
+        public ActionResult<Blog> GetBlog([FromQuery] int n = 1, [FromQuery] string category = null)
         {
-            var blog = await _context.Posts.FindAsync(name);
+            if (string.IsNullOrWhiteSpace(category))
+            {
+                var blog = _context.Posts.Find(n);
+                if (blog == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(blog);
+            }
+
+            try
+            {
+                return Ok(_context.Posts.First(x =>
+                    string.Equals(x.Category, category, StringComparison.CurrentCultureIgnoreCase)
+                    && x.Id == n
+                ));
+            }
+            catch (InvalidOperationException)
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("{title}")]
+        public ActionResult<Blog> GetBlog(string title)
+        {
+            var blog = _context.Posts.ToList().FirstOrDefault(x => x.Title == title);
 
             if (blog == null)
             {
@@ -33,10 +63,10 @@ namespace Website.Controllers
         }
 
         [AuthorizeFromKey]
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBlog(string id, Blog blog)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> PutBlog(int id, Blog blog)
         {
-            if (id != blog.Title)
+            if (id != blog.Id)
             {
                 return BadRequest();
             }
@@ -66,6 +96,7 @@ namespace Website.Controllers
         [AuthorizeFromKey]
         public async Task<ActionResult<Blog>> PostBlog(Blog blog)
         {
+            blog.CreatedAt = DateTime.UtcNow;
             _context.Posts.Add(blog);
             try
             {
@@ -73,18 +104,18 @@ namespace Website.Controllers
             }
             catch
             {
-                if (BlogExists(blog.Title))
+                if (BlogExists(blog.Id))
                 {
                     return Conflict();
                 }
             }
 
-            return CreatedAtAction("GetBlog", new { id = blog.Title }, blog);
+            return CreatedAtAction("GetBlog", new { n = blog.Id }, blog);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         [AuthorizeFromKey]
-        public async Task<IActionResult> DeleteBlog(string id)
+        public async Task<IActionResult> DeleteBlog(int id)
         {
             var blog = await _context.Posts.FindAsync(id);
             if (blog == null)
@@ -98,9 +129,9 @@ namespace Website.Controllers
             return NoContent();
         }
 
-        private bool BlogExists(string id)
+        private bool BlogExists(int id)
         {
-            return _context.Posts.Any(e => e.Title == id);
+            return _context.Posts.Any(e => e.Id == id);
         }
     }
 }

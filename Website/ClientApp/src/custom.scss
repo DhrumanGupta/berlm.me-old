@@ -85,7 +85,6 @@ body {
 }
 
 hr {
-  overflow: visible;
   text-align: center;
   border: none;
   background: linear-gradient(to left, currentColor calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), currentColor calc(50% + 16px))
@@ -99,8 +98,7 @@ hr::after, hr::before {
   top: calc(50% - 0.8rem);
   transform: rotate(22.5deg);
   width: 0.1rem;
-  margin-left: .3rem;
-  margin-right: .3rem;
+  margin: 0 .3rem 0 .3rem;
   background-color: white;
 }
 
@@ -111,8 +109,35 @@ hr::after, hr::before {
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
 
+$theme-color: $info;//
+
 code {
-  color: $danger;
+  color: $theme-color;
+  font-size: 0.8em !important;
+}
+
+.inline-code {
+  background-color: #3e3e3e;
+  border-radius: 3px;
+  padding: .1em .1em;
+  margin-right: 0.1em;
+}
+
+.text-themed {
+  color: $theme-color !important;
+}
+
+cite a:any-link {
+  color: $theme-color !important;
+}
+
+blockquote {
+  border-color: $theme-color;
+  border-style: solid;
+  border-width: 0 0 0 0.2rem;
+  margin: 1.65rem 0;
+  padding: 0.8rem 1.5rem 1rem 1.5rem;
+  background-color: #2a2a2a;
 }
 
 $generatedStep: 5;
