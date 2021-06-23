@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="linode" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="linode">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/Website/.dockerignore" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/.gitignore" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/.env" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/.gitignore" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/package.json" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/public/favicon.ico" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/public/index.html" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/public/manifest.json" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/App.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/App.test.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/Error404.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/Home.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/Layout.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/MediaIcon.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/NavMenu.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/blog/Blog.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/blog/BlogList.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/components/blog/Code.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/custom.scss" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/data/MediaHandles.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/data/test.md" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/index.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/registerServiceWorker.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/src/setupTests.js" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/ClientApp/yarn.lock" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Controllers/WeatherForecastController.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Data/BlogDbContext.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Dockerfile" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Extensions/DistributedCacheExtensions.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Extensions/TimeExtensions.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Models/Blog.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Models/BlogDataDTO.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Models/WeatherForecast.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Pages/Error.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Pages/Error.cshtml.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Pages/_ViewImports.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Properties/launchSettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Services/IBlogDataService.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Startup.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/Website.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/appsettings.Development.json" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/appsettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/obj/Debug/net5.0/Website.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Website/obj/Debug/net5.0/Website.RazorAssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/berlm.me.sln" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
