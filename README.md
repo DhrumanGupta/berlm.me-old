@@ -7,11 +7,9 @@ I've always wanted to have, or at least- make a website for myself (an actual go
 In a way, this is a thing to cross off from my bucket list.
 
 ## Techincal Information
-- **Backend**: ASP.NET core. Uses a controller with a webapi to send and recieve data.
 - **Frontend**: React.js. Static build files are passed from here to the backend's file provider.
-- **Relational Database**: MySQL
 - **In-Memory Database**: Redis
-- **DevOps**: GitHub Actions
+- **DevOps**: Netlify Auto deploy
 
 ## Development Roadmap/Todo List
 I have a public trello list on which I keep adding TODO things (as they come in my mind). The status of the features can be seen there as well.  
