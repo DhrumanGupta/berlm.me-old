@@ -8,7 +8,9 @@ class MediaIcon extends React.Component {
 	render() {
 		const data = this.props.data;
 		return (
-			<a href={data.url} target={"_blank"} rel={"noopener noreferrer"} className={`btn btn-outline-${data.color} p-2 mx-1 fa-lg ${data.class}`}/>
+			<a href={data.url} aria-label={data.name} target={"_blank"} rel={"noopener noreferrer"} className={`btn btn-outline-${data.color} p1 mx-1`}>
+				<i className={`fa-lg ${data.class}`} aria-hidden={"true"}/>
+			</a>
 		);
 	}
 }
