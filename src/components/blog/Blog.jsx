@@ -1,7 +1,6 @@
 ﻿import React, {useEffect, useState} from 'react';
 import Markdown from "markdown-to-jsx"
 import {useParams} from 'react-router-dom'
-import axios from "axios";
 import Loader from "../Loader";
 import Error404 from "../Error404";
 import Code from "./Code";
