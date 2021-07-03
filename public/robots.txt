@@ -1,3 +1,7 @@
-﻿User-agent: *
+﻿User-agent: Mediapartners-Google
+Allow: /blog
 Allow: /about
-Allow: /resources/blog
+
+User-agent: *
+Disallow: /
+Noindex: /

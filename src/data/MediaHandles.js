@@ -6,7 +6,7 @@
 		color: 'light'
 	},
 	{
-		name: "Itch",
+		name: "Itch.io",
 		class: 'fab fa-itch-io',
 		url: 'https://itch.io/profile/berlm',
 		color: 'danger'
