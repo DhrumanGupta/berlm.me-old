@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router';
 import About from "./components/About";
 import Blog from "./components/blog/Blog";
 import BlogList from "./components/blog/BlogList";
+import ExternalRoutes from "./components/ExternalRoutes";
 
 function handleResize() {
 	const root = document.documentElement;
@@ -30,6 +31,7 @@ export default function App() {
 				<Route exact path={'/about'} component={About}/>
 				<Route exact path='/blog' component={BlogList}/>
 				<Route exact path='/blog/:title' component={Blog}/>
+				<ExternalRoutes/>
 				<Route component={Error404}/>
 			</Switch>
 		</Layout>

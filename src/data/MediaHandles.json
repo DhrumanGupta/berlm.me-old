@@ -1,0 +1,20 @@
+﻿[
+  {
+    "name": "GitHub",
+    "class": "fab fa-github",
+    "url": "/github",
+    "color": "light"
+  },
+  {
+    "name": "Itch.io",
+    "class": "fab fa-itch-io",
+    "url": "/itch",
+    "color": "danger"
+  },
+  {
+    "name": "Email",
+    "class": "fas fa-envelope",
+    "url": "/email",
+    "color": "info"
+  }
+]

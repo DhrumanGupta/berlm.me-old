@@ -1,6 +1,6 @@
 ﻿import React, {Suspense} from 'react';
 import Typing from 'react-typist';
-import {MediaData} from "../data/MediaHandles";
+import mediaData from "../data/MediaHandles.json";
 
 const MediaIcon = React.lazy(() => import('./MediaIcon'));
 
@@ -36,7 +36,7 @@ class Home extends React.PureComponent {
 				</div>
 				<div style={{width: "100px"}} className={"d-flex flex-row align-items-center justify-content-center"}>
 					{
-						MediaData.map((obj) => (
+						mediaData.map((obj) => (
 								<Suspense fallback={" W "} key={obj.class}>
 									<MediaIcon data={obj}/>
 								</Suspense>
