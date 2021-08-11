@@ -1,9 +1,13 @@
+[build]
+  base = "/"
+
 [context.production]
   command = "yarn build"
   publish = "build"
   
-[context.docs]
+[context.branch-deploy]
   publish = "/"
+  command = ""
   
 [[redirects]]
   from = https://berlm-me.netlify.com/*
