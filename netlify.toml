@@ -10,8 +10,8 @@
   command = ""
   
 [[redirects]]
-  from = https://berlm-me.netlify.com/*
-  to = https://www.berlm.me/:splat
+  from = "https://berlm-me.netlify.com/*"
+  to = "https://www.berlm.me/:splat"
   status = 301
   
 [[redirects]]
