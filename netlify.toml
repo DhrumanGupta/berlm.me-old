@@ -1,0 +1,16 @@
+[context.production]
+  command = "yarn build"
+  publish = "build"
+  
+[context.docs]
+  publish = "/"
+  
+[[redirects]]
+  from = https://berlm-me.netlify.com/*
+  to = https://www.berlm.me/:splat
+  status = 301
+  
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
